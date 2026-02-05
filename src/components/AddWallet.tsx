@@ -3,6 +3,7 @@ import { generateMnemonic, mnemonicToSeed } from "bip39";
 import { derivePath } from "ed25519-hd-key";
 import { Keypair } from "@solana/web3.js";
 import nacl from "tweetnacl";
+import Wallet from "./Wallet";
 
 const AddWallet = () => {
 	const [mnemonic, setMnemonic] = useState<string>();
@@ -18,17 +19,20 @@ const AddWallet = () => {
 	const createWallet = async () => {
 		if (mnemonic) {
 			const seed = await mnemonicToSeed(mnemonic);
-			const path = `m/44'/501'/${currentIndex}'/0'`;
-			const derivedSeed = derivePath(path, seed.toString("hex")).key;
-			const secret = nacl.sign.keyPair.fromSeed(derivedSeed).secretKey;
-			const keypair = Keypair.fromSecretKey(secret);
 
-			setCurrentIndex(currentIndex + 1);
-			setPublicKeys([...publicKeys, keypair.publicKey.toBase58()]);
+			setCurrentIndex((idx) => {
+				const path = `m/44'/501'/${idx}'/0'`;
+				const derivedSeed = derivePath(path, seed.toString("hex")).key;
+				const secret =
+					nacl.sign.keyPair.fromSeed(derivedSeed).secretKey;
+				const keypair = Keypair.fromSecretKey(secret);
+				setPublicKeys([...publicKeys, keypair.publicKey.toBase58()]);
+				return idx + 1;
+			});
 		}
 	};
 	return (
-		<div className="flex flex-col pt-10 gap-1">
+		<div className="flex flex-col h-full  gap-2">
 			<div className="text-2xl tracking-tight">
 				Enter Your Secreate Phrase
 			</div>
@@ -59,13 +63,15 @@ const AddWallet = () => {
 					onClick={createWallet}
 					className="bg-primary text-white rounded-r-md px-4 hover:bg-primary/80"
 				>
-					Create Wallet
+					Add Wallet
 				</button>
 			</div>
 
-			{publicKeys.map((p) => (
-				<div>{p}</div>
-			))}
+			<div className="flex flex-1 min-h-0 flex-col gap-2 pt-10 overflow-y-auto scrollbar-hide">
+				{publicKeys.map((p, idx) => (
+					<Wallet pubkey={p} idx={idx} />
+				))}
+			</div>
 		</div>
 	);
 };

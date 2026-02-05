@@ -1,7 +1,7 @@
 export const themes = {
 	light: {
 		"--color-bg": "#ffffff",
-		"--color-surface": "#f9fafb",
+		"--color-surface": "var(--color-neutral-200)",
 		"--color-text": "#111827",
 		"--color-muted": "#6b7280",
 		"--color-primary": "#111111",

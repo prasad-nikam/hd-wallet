@@ -1,5 +1,16 @@
-const Wallet = () => {
-	return <div className="pt-10"></div>;
+type walletProp = {
+	pubkey: string;
+	idx: number;
+};
+
+const Wallet = ({ pubkey, idx }: walletProp) => {
+	console;
+	return (
+		<div className="p-4 rounded-2xl bg-surface">
+			<div className="text-xl font-semibold">Wallet {idx + 1}</div>
+			<div>{pubkey}</div>
+		</div>
+	);
 };
 
 export default Wallet;

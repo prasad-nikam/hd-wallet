@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import { useTheme } from "./context/ThemeContext";
 import { themes, type ThemeName } from "./context/themes";
 import AddWallet from "./components/AddWallet";
-import Wallet from "./components/Wallet";
 
 function App() {
 	const { setTheme } = useTheme();
@@ -16,10 +15,11 @@ function App() {
 
 	return (
 		<div className="bg-bg text-text">
-			<div className="h-screen max-w-7xl m-auto flex flex-col p-4 ">
+			<div className="h-screen max-w-7xl m-auto flex flex-col p-4">
 				<Navbar />
-				<AddWallet />
-				<Wallet />
+				<div className="flex-1 min-h-0">
+					<AddWallet />
+				</div>
 			</div>
 		</div>
 	);
