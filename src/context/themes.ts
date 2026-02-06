@@ -7,6 +7,8 @@ export const themes = {
 		"--color-primary": "#111111",
 		"--color-secondary": "#ef4444",
 		"--color-border": "#e5e7eb",
+		"--color-warning": "#e6a23c",
+
 	},
 	dark: {
 		"--color-bg": "#020617",
@@ -16,6 +18,8 @@ export const themes = {
 		"--color-primary": "#818cf8",
 		"--color-secondary": "#f87171",
 		"--color-border": "#1f2937",
+		"--color-warning": "#e6a23c",
+
 	},
 	ocean: {
 		"--color-bg": "#022c22",
@@ -25,6 +29,8 @@ export const themes = {
 		"--color-primary": "#2dd4bf",
 		"--color-secondary": "#22c55e",
 		"--color-border": "#065f46",
+		"--color-warning": "#e6a23c",
+
 	},
 	lavender: {
 		"--color-bg": "#e6e6fa",

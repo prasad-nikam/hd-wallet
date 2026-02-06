@@ -8,6 +8,7 @@
     --secondary: #ef4444;
     --border: #e5e7eb;
     --card: #f9fafb;
+    --color-warning: "#e6a23c";
 }
 
 * {
@@ -27,4 +28,16 @@
     --color-warning: var(--color-warning);
     --color-danger: var(--color-danger);
     --color-shadow: var(--color-shadow);
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE & Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
 }

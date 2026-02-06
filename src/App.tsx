@@ -17,9 +17,7 @@ function App() {
 		<div className="bg-bg text-text">
 			<div className="h-screen max-w-7xl m-auto flex flex-col p-4">
 				<Navbar />
-				<div className="flex-1 min-h-0">
-					<AddWallet />
-				</div>
+				<AddWallet />
 			</div>
 		</div>
 	);

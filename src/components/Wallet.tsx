@@ -6,7 +6,7 @@ type walletProp = {
 const Wallet = ({ pubkey, idx }: walletProp) => {
 	console;
 	return (
-		<div className="p-4 rounded-2xl bg-surface">
+		<div key={idx} className="p-4 rounded-2xl bg-surface">
 			<div className="text-xl font-semibold">Wallet {idx + 1}</div>
 			<div>{pubkey}</div>
 		</div>
